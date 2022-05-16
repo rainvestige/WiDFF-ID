@@ -1,5 +1,3 @@
-# This implementation is based on the DenseNet-BC implementation in torchvision
-# https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py
 
 import math
 import torch

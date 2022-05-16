@@ -11,7 +11,6 @@ from torch.autograd import Variable
 def main():
     # load network model
     net = torch.load('./aug_pca8.pkl')
-    #net = torch.load('./densenet_percent1.0_pca.pkl')
     net = net.cuda()
     # only evaluate
     net.eval()
@@ -21,7 +20,7 @@ def main():
     for i in range(num_iter):
         time_start = time.clock()
         # Prepare data, nSample x nChannel x width x height
-        test_fname = '../flt_and_pca/pca_data.mat'
+        test_fname = 'pca_data.mat'
         dataset = sio.loadmat(test_fname)
         data = dataset['pca_data']
         data = torch.from_numpy(data).type(torch.FloatTensor)
@@ -35,11 +34,11 @@ def main():
             bincount = predict_label.bincount()
             prob = bincount.max(-1)[0].item() / num_samples
             predicted_id = bincount.max(-1)[1].item() + 1
-            #if prob > 0.8:
-            #    print("Identified as No.{}, the probability is "
-            #          "{}".format(predicted_id, prob))
-            #else:
-            #    print("Illegal person")
+            if prob > 0.8:
+                print("Identified as No.{}, the probability is "
+                      "{}".format(predicted_id, prob))
+            else:
+                print("Illegal person")
         elapsed_time = (time.clock() - time_start)
         total_time += elapsed_time
     print("The time taken to identify a unknown person: {:4.6f}ms".format(

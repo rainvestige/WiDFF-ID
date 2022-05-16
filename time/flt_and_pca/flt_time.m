@@ -10,8 +10,7 @@ selected_samples = 50; % Only need 50 samples in test stage to determine the ide
 for i = 1:num_iteration
     id = tic;
     %% Load the data.
-    fname = ...
-    '/home/public/b509/code/g19/xxy/projects/CSI-DenseNet/data/20201120/NO17.mat';
+    fname = 'NO20.mat';
     load(fname);
     [b, a] = butter(5, 2/100);
     flt_data = filter(b, a, csi_array);

@@ -58,8 +58,7 @@ def apply_pca(dirname, filename, dataname, labelname, pca_matrix=None):
     return pca_matrix
 
 def main():
-    train_dirname = (
-    '/home/public/b509/code/g19/xxy/projects/CSI-DenseNet/data/20201120/')
+    train_dirname = ('./')
     filename = 'aug_train.mat'
     dataname = 'aug_train_data'
     labelname = 'aug_train_label'

@@ -1,7 +1,6 @@
 clear; clc;
 
-abs_dat_name = ...
-'/home/public/b509/code/g19/xxy/projects/CSI-DenseNet/data/20201120/NO1.dat';
+abs_dat_name = 'NO20.dat';
 num_iteration = 100
 total_time = 0;
 
